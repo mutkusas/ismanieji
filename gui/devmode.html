@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+    <script src="./repo/service.js"></script>
+    <script src="js/devcontroller.js"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="controller as ctrl">
+    <md-toolbar class="md-primary">
+        <div class="md-toolbar-tools">
+            <h2 class="md-flex">Išmanioji klasė 2018 [ADMIN]</h2>
+        </div>
+    </md-toolbar>
+    <md-card>
+        <div ng-cloak>
+            <md-content>
+                <md-tabs md-dynamic-height md-border-bottom>
+                    <md-tab label="Žaidėjai">
+                        <md-content class="md-padding">
+                            <h3 class="md-display-2">Žaidėjai</h3>
+                            <md-button ng-click="createPlayer($event)">PRIDĖTI ŽAIDĖJĄ</md-button>
+                            <table>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Vardas</th>
+                                </tr>
+                                <tr ng-repeat="player in players">
+                                    <td>{{player.Id}}</td>
+                                    <td>{{player.name}}</td>
+                                </tr>
+                            </table>
+                        </md-content>
+                    </md-tab>
+                    <md-tab label="Komandos">
+                        <md-content class="md-padding">
+                            <h3 class="md-display-2">Komandos</h3>
+                            <p>Komandų administravimas</p>
+                        </md-content>
+                    </md-tab>
+                    <md-tab label="Klausimai">
+                        <md-content class="md-padding">
+                            <h3 class="md-display-2">Klausimai</h3>
+                            <p>Klausimų administravimas</p>
+                            <md-button>PRIDĖTI KLAUSIMĄ</md-button>
+                            <table>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Vardas</th>
+                                </tr>
+                                <tr ng-repeat="player in players">
+                                    <td>{{player.Id}}</td>
+                                    <td>{{player.name}}</td>
+                                </tr>
+                            </table>
+                        </md-content>
+                    </md-tab>
+                    <md-tab label="Žaidimas">
+                        <md-content class="md-padding">
+                            <h3 class="md-display-2">Žaidimas</h3>
+                            <p>Žaidimo administravimas</p>
+                        </md-content>
+                    </md-tab>
+                    <md-tab label="REZULTATAI">
+                        <md-content class="md-padding">
+                            <h3 class="md-display-2">REZULTATAI</h3>
+                            <md-tabs md-dynamic-height md-border-bottom>
+                                <md-tab label="Žaidėjų">
+                                    <md-content class="md-padding">
+                                        <h3 class="md-display-2">Žaidėjai</h3>
+                                        <p>Čia bus žaidėjų rezultatai</p>
+                                    </md-content>
+                                </md-tab>
+                                <md-tab label="Komandų">
+                                    <md-content class="md-padding">
+                                        <h3 class="md-display-2">Komandos</h3>
+                                        <p>Čia bus komandiniai rezultatai</p>
+                                    </md-content>
+                                </md-tab>
+                            </md-tabs>
+                        </md-content>
+                </md-tabs>
+            </md-content>
+        </div>
+    </md-card>
+</body>
+<footer style="text-align:center">
+    ©Irmantas Ivanauskas, Išmanioji Klasė, 2018
+</footer>
+
+</html>

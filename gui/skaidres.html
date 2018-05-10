@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+    <script src="./repo/service.js"></script>
+    <script src="js/skaidresController.js"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="controller as ctrl">
+    <md-toolbar class="md-primary">
+        <div class="md-toolbar-tools">
+            <h2 class="md-flex">Išmanioji klasė 2018</h2>
+        </div>
+
+        <md-card>
+            <div ng-cloak>
+                <md-content>
+                    <md-tabs  md-dynamic-height md-border-bottom>
+                        <md-tab ng-repeat='klausimas in klausimai' label="{{klausimas.id}}">
+                            <md-content class="md-padding">
+                                <h4 class="md-display-2">{{klausimas.id}}. {{klausimas.tekstas}}</h4>
+                                <table>
+                                    <div></div>
+                                    <md-button class="md-raised md-primary" ng-repeat='atsakymas in klausimas.atsakymai'>{{atsakymas.identifikatorius}}) {{atsakymas.atsakymas}}</md-button>
+                                </table>
+                            </md-content>
+                        </md-tab>
+                    </md-tabs>
+                </md-content>
+            </div>
+        </md-card>
+
+        </md-card>
+
+</body>
+<footer style="text-align:center">
+    ©Irmantas Ivanauskas, Išmanioji Klasė, 2018
+</footer>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+    <script src="./repo/service.js"></script>
+    <script src="js/playcontroller.js"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="controller as ctrl">
+    <md-toolbar class="md-primary">
+        <div class="md-toolbar-tools">
+            <h2 class="md-flex">Išmanioji klasė 2018 [ŽAIDĖJAS]</h2>
+        </div>
+
+        <md-card>
+            <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
+                <div>
+                    <md-input-container>
+                        <label>Žaidėjo numeris</label>
+                        <input ng-model="zaidejas.kodas" type="email">
+                    </md-input-container>
+                </div>
+                <md-button ng-click="isVerificated = true">VERIFIKUOTI</md-button>
+            </md-content>
+
+            <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Turas</label>
+                    <md-select ng-model="zaidejas.turas">
+                        <md-option ng-repeat="turas in turai" value="{{turas.id}}">
+                            {{turas.pavadinimas}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+
+            </md-content>
+            <md-content ng-if='isVerificated' md-theme="docs-dark" layout-gt-sm="row" layout-padding>
+                <div>Žaidėjas: Petras. Sėkmės!</div>
+            </md-content>
+
+            <div ng-repeat="klausimas in klausimai">
+                <h3>{{klausimas.id}}. Klausimas</h3>
+                <md-button ng-style="myStyle(klausimas.pasirinktas, atsakymas.identifikatorius)" ng-click="klausimas.pasirinktas = atsakymas.identifikatorius" ng-repeat="atsakymas in klausimas.atsakymai">{{atsakymas.identifikatorius}}</md-button>
+                <div>Variantas: <b>{{klausimas.pasirinktas}}<b/></div>
+            </div>
+
+        </md-card>
+
+</body>
+<footer style="text-align:center">
+    ©Irmantas Ivanauskas, Išmanioji Klasė, 2018
+</footer>
+
+</html>
